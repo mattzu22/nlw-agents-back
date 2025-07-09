@@ -4,19 +4,23 @@ import { schema } from './schema/index.ts'
 
 await reset(db, schema)
 
-await seed(db, schema).refine(f => {
+await seed(db, schema).refine((f) => {
     return {
         rooms: {
             count: 20,
             columns: {
                 name: f.companyName(),
                 description: f.loremIpsum(),
+            },
+            with: {
+                questions: 5,
             }
         }
+
     }
 })
 
 await sql.end()
 
-// biome-ignore lint/suspicious/noConsole: <explanation>
+// biome-ignore lint/suspicious/noConsole: node
 console.log('data seeded');

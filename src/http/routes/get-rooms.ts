@@ -1,11 +1,23 @@
+import { count, eq } from 'drizzle-orm';
 import type { FastifyPluginCallbackZod } from 'fastify-type-provider-zod';
 import { db } from '../../db/connection.ts';
 import { schema } from '../../db/schema/index.ts';
 
 export const getRoomsRoute: FastifyPluginCallbackZod = (app) => {
     app.get('/rooms', () => {
-        const results = db.select({ id: schema.rooms.id, name: schema.rooms.name }).from(schema.rooms).orderBy(schema.rooms.createdAt)
+        const results = db
+            .select({
+                id: schema.rooms.id,
+                name: schema.rooms.name,
+                questionsCount: count(schema.questions.id),
+                createdAt: schema.rooms.createdAt,
+            })
+            .from(schema.rooms)
+            .leftJoin(schema.questions, eq(schema.questions.roomId, schema.rooms.id))
+            //agrupar impede que o select retorne dados duplicados
+            .groupBy(schema.rooms.id)
+            .orderBy(schema.rooms.createdAt);
 
-        return results
-    })
+        return results;
+    });
 };
