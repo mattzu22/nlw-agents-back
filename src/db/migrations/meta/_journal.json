@@ -15,6 +15,13 @@
       "when": 1752082801654,
       "tag": "0001_funny_starfox",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1752341952415,
+      "tag": "0002_jittery_leo",
+      "breakpoints": true
     }
   ]
 }

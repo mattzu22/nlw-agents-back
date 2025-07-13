@@ -37,5 +37,5 @@ Post {{base_url}}/rooms/{{roomId}}/questions
 Content-Type: application/json
 
 {
-    "question": "teste de pergunta?"
+    "question": "o que é react"
 }

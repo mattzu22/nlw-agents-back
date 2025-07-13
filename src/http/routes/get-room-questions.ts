@@ -14,7 +14,7 @@ export const getRoomsQuestionsRoute: FastifyPluginCallbackZod = (app) => {
                 }),
             },
         },
-        async (request, reply) => {
+        async (request) => {
             const { roomId } = request.params;
 
             const result = await db
@@ -27,10 +27,6 @@ export const getRoomsQuestionsRoute: FastifyPluginCallbackZod = (app) => {
                 .from(schema.questions)
                 .where(eq(schema.questions.roomId, roomId))
                 .orderBy(desc(schema.questions.createdAt));
-
-            if (result.length === 0) {
-                reply.code(404).send({ message: 'Room question not found' });
-            }
 
             return result;
         }
