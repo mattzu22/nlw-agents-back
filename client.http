@@ -33,7 +33,8 @@ Get {{base_url}}/rooms/{{roomId}}/questions
 #Create a questions
 
 # @name createQuestion
-Post {{base_url}}/rooms/{{roomId}}/questions
+Post {{base_url}}/rooms/{{roo
+mId}}/questions
 Content-Type: application/json
 
 {

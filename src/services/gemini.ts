@@ -50,8 +50,8 @@ export async function generateAnswer(
     question: string,
     transcriptions: string[]
 ) {
-    const context = transcriptions.join('\n\n')
-
+    const context = transcriptions.join('\n\n');
+    
     const prompt = `
     Com base no texto fornecido abaixo como contexto, responda a pergunta de forma clara e precisa em português do Brasil.
   
@@ -77,8 +77,8 @@ export async function generateAnswer(
                 text: prompt,
             },
         ],
-    })
-
+    });
+        
     if (!response.text) {
         throw new Error('Falha ao gerar resposta pelo Gemini')
     }

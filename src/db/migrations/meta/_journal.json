@@ -22,6 +22,20 @@
       "when": 1752341952415,
       "tag": "0002_jittery_leo",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1752789693803,
+      "tag": "0003_parched_hercules",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1752790045254,
+      "tag": "0004_dashing_krista_starr",
+      "breakpoints": true
     }
   ]
 }

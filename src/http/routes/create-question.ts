@@ -42,7 +42,7 @@ export const createQuestionRoute: FastifyPluginCallbackZod = (app) => {
                 .orderBy(
                     sql`${schema.audioChunks.embeddings} <=> ${embeddingsAsString}::vector`
                 )
-                .limit(3)
+                .limit(10)
 
             let answer: string | null = null
 
